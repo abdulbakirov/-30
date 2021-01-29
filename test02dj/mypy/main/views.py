@@ -8,4 +8,7 @@ def index(request):
 
 
 def test(request):
-    return render('зайбал чктыго жетим ')
+    return render(request, 'main/test.html')
+
+def test01(request):
+    return render(request, 'main/test01.html')
