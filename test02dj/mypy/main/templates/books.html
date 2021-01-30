@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <br>
+    <p><a href="{% url 'book-add' %}" class="btn btn-secondary">Добавить книгу</a>
+    {% for book in book_list %}
+        <hr>
+            <div class="
+            {% if book.is_favorite%}
+                text-success border border-warning
+            {% else %}
+                
+            {% endif %}
+            ">
+                <p>Название: {{ book.title }}</p>
+                <p>Подзаголовок: {{ book.subtitle }}</p>
+                <p>Описание: {{ book.description }}</p>
+                <a href="{% url 'delete-book' book.id %}" class="btn btn-danger">Удалить</a>
+                <a href="{% url 'favorite-book' book.id %}" class="btn btn-warning">Избранное</a>
+                <a href="{% url 'info-book' book.id %}" class="btn btn-info">Посмотреть детали книги</a>
+            </div>
+        <br>
+    {% endfor %}
+{% endblock %}
